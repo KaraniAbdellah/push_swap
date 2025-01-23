@@ -4,12 +4,17 @@ SRCS = main.c
 TARGET = main
 
 
-$(TARGET): $(SRCS)
+main: main.c # target only rebuild if main.c change [main rebuild if main.c change]
 	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 
-clean:
-	rm -f $(TARGET)
 
+
+fclean: # to remove everything [executable and object filies]
+	rm -f $(TARGET)
+	rm -f *.o
+
+clean: # remove just excutable
+	rm -f $(TARGET) 
 
 
 
