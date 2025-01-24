@@ -17,6 +17,9 @@ clean: # remove just excutable
 	rm -f $(TARGET) 
 
 
+# all usualy define the depencies of all targets
+all: $(TARGET) # we are here build main
+
 
 
 
