@@ -12,7 +12,7 @@ typedef struct Stack {
 
 
 // Start Defining The Functions Prototype
-Stack *create_and_init_node();
+Stack *create_and_init_node(int data);
 void push_to_stack(Stack **head, Stack **sommet, int data);
 void display_stack(Stack *head);
 

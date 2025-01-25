@@ -45,18 +45,18 @@
 #include <stdlib.h>
 
 
-Stack *create_and_init_node() {
+Stack *create_and_init_node(int data) {
     Stack *new_node = malloc(sizeof(Stack));
     if (new_node != NULL) {
         new_node->next = new_node->prev = NULL;
-        new_node->data = 0;
+        new_node->data = data;
         return new_node;
     } else return NULL;
 }
 
 
 void push_to_stack(Stack **head, Stack **sommet, int data) {
-    Stack *new_node = create_and_init_node();
+    Stack *new_node = create_and_init_node(data);
     if (new_node == NULL) return;
 
     if (*head == NULL) {
