@@ -42,14 +42,34 @@
 // Include The Necessary Libs
 #include "header.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 
-void sayPush() {
-    printf("Hello Push");
+Stack *create_and_init_node() {
+    Stack *new_node = malloc(sizeof(Stack));
+    if (new_node != NULL) {
+        new_node->next = new_node->prev = NULL;
+        new_node->data = 0;
+        return new_node;
+    } else return NULL;
 }
 
 
+void push_to_stack(Stack **head, Stack **sommet, int data) {
+    Stack *new_node = create_and_init_node();
+    if (new_node == NULL) return;
 
+    if (*head == NULL) {
+        *head = new_node;
+        *sommet = new_node;
+        return;
+    }
+
+    (*sommet)->next = new_node;
+    new_node->prev = *sommet;
+    *sommet = new_node;
+
+}
 
 
 

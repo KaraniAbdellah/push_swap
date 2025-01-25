@@ -2,9 +2,17 @@
 #define PUSH_SWAP
 
 
-// Start Defining The Functions Prototype
-void sayPush();
+// Define The Structure of Stack
+typedef struct Stack {
+    int data;
+    struct Stack *next;
+    struct Stack *prev;
+} Stack;
 
+
+
+// Start Defining The Functions Prototype
+Stack *create_and_init_node();
 
 
 
