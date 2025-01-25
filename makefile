@@ -1,10 +1,10 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -std=c99 -pedantic -g
-SRCS = main.c
-TARGET = main
+SRCS = push_swap.c src/funcs.c
+TARGET = push
 
 
-main: main.c # target only rebuild if main.c change [main rebuild if main.c change]
+push: push_swap.c # target only rebuild if push_swap.c change [push_swap rebuild if push_swap.c change]
 	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 
 
@@ -18,7 +18,7 @@ clean: # remove just excutable
 
 
 # all usualy define the depencies of all targets
-all: $(TARGET) # we are here build main
+all: $(TARGET) # we are here build push_swap.c
 
 
 
