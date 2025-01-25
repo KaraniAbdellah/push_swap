@@ -68,10 +68,17 @@ void push_to_stack(Stack **head, Stack **sommet, int data) {
     (*sommet)->next = new_node;
     new_node->prev = *sommet;
     *sommet = new_node;
-
 }
 
+void display_stack(Stack *head) {
 
+    Stack *temp = head;
+    while (temp != NULL) {
+        printf("%d\n", temp->data);
+        temp = temp->next;
+    }
+
+}
 
 
 
