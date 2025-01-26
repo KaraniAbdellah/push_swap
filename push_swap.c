@@ -15,11 +15,17 @@ int main() {
     push_to_stack(&head, &sommet, 8);
 
     display_stack(head);
-    
+
+    pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
     pop_from_stack(&head, &sommet);
 
     display_stack(head);
-
     return 0;
 }
 

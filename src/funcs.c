@@ -71,9 +71,10 @@ void push_to_stack(Stack **head, Stack **sommet, int data) {
 }
 
 void pop_from_stack(Stack **head, Stack **sommet) {
-    if (*head == NULL) return;
+    if (*head == NULL || *sommet == NULL) return;
     Stack *temp = *sommet;
     *sommet = (*sommet)->prev;
+    (*sommet)->next = NULL;
     if (*sommet == NULL) *head = NULL;
     printf("free is temp->data = %d\n", temp->data);
     free(temp);
@@ -82,7 +83,7 @@ void pop_from_stack(Stack **head, Stack **sommet) {
 void display_stack(Stack *head) {
     printf("Stack X:\n");
     Stack *temp = head;
-    while (temp->next != NULL) {
+    while (temp != NULL) {
         printf("%d\n", temp->data);
         temp = temp->next;
     }
