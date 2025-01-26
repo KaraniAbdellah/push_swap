@@ -24,6 +24,9 @@ int main() {
     pop_from_stack(&head, &sommet);
     pop_from_stack(&head, &sommet);
     pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
+    pop_from_stack(&head, &sommet);
 
     display_stack(head);
     return 0;
