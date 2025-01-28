@@ -86,10 +86,25 @@ void display_stack(Stack *head) {
         printf("%d\n", temp->data);
         temp = temp->next;
     }
-
 }
 
 
+void sorting_algo(Stack **a_head, Stack **b_head) {
+    // Push
+    *b_head = (*a_head);
+    Stack *temp = *a_head;
+    *a_head = (*a_head)->next;
+    free(temp);
+
+    // Swap
+    Stack *temp = *a_head;
+    *a_head = temp->next;
+    (*a_head)->next = temp;
+
+    // 
+
+
+}
 
 
 
