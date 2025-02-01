@@ -13,7 +13,8 @@ int main() {
     push_to_stack(&head, &sommet, 1);
     push_to_stack(&head, &sommet, -5);
     push_to_stack(&head, &sommet, 6);
-
+    
+    sorting_algo();
     display_stack(head);
 
     return 0;
