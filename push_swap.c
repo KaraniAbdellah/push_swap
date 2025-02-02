@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 
-int main() {
+int main(int argc, int **argv) {
     printf("Welcome To Push Swape Project: \n");
     
     int n = 6;
@@ -18,15 +18,6 @@ int main() {
 
     // sorting the stack a
     sorting_algo(n, a, b);
-
-
-
-    
-    
-
-
-    
-    
 
     return 0;
 }
