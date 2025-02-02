@@ -89,19 +89,56 @@ void display_stack(Stack *head) {
 }
 
 
-void sorting_algo(Stack **a_head, Stack **b_head) {
-    // Push
-    *b_head = (*a_head);
-    Stack *temp = *a_head;
-    *a_head = (*a_head)->next;
-    free(temp);
+void sorting_algo(int n, Stack *a, Stack *b) {
+    // display the ele of stack a
+    // for (int i = 0; i < n; i++) {
+    //     printf("%d\n", a[i].data);
+    // }
 
-    // Swap
-    Stack *temp = *a_head;
-    *a_head = temp->next;
-    (*a_head)->next = temp;
+    // PUSH Operattion
+    b[0].data = a[0].data;
+    for (int i = 0; i < n; i++) {
+        a[i].data = a[i + 1].data;
+    }
+    n--;
 
-    // 
+
+
+    // SWAP Operation
+    int temp = a[0].data;
+    a[0].data = a[1].data;
+    a[1].data = temp;
+
+    // for (int i = 0; i < n; i++) {
+    //     printf("%d\n", a[i].data);
+    // }
+    // printf("-----------\n");
+
+    // ROTATE Operation
+    a[n].data = a[0].data;
+    for (int i = 0; i < n; i++) {
+        a[i].data = a[i + 1].data;
+    }
+
+    for (int i = 0; i < n; i++) {
+        printf("%d\n", a[i].data);
+    }
+
+    // REVERSE Rotate
+    
+    int temp1 = a[n].data;
+    for (int i = n - 1; i >= 0; i--) {
+        a[i].data = a[i- 1].data;
+    }
+    a[0].data = temp1;
+
+    printf("---------\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\n", a[i].data);
+    }
+
+
+
 
 
 }
