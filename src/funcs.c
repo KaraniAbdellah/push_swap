@@ -123,7 +123,24 @@ void sorting_algo(int n, Stack *a, Stack *b) {
     }
     a[0].data = temp1;
 
+}
 
+
+int isThisDigit(char *arg) {
+    int i = 0;
+    // if (!arg || !arg[0]) return -1;
+    // if (arg[0] == '+' || arg[0] == '-') i++;
+    // for (; arg[i] != '\0'; i++) {
+    //     if (arg[i] < '0' || arg[i] > '9') return -1;
+    // }
+    // return (i == 1 && (arg[0] == '+' || arg[0] == '-')) ? -1 : 0;
+}
+
+
+void print_passing_arg(int *argc, char **argv) {
+    for (int i = 0; i < *argc; i++) {
+        // printf("%d \n", isThisDigit(argv[i]));
+    }
 }
 
 
