@@ -125,15 +125,17 @@ void sorting_algo(int n, Stack *a, Stack *b) {
 
 }
 
-
 int isThisDigit(char *arg) {
     int i = 0;
-    // if (!arg || !arg[0]) return -1;
-    // if (arg[0] == '+' || arg[0] == '-') i++;
-    // for (; arg[i] != '\0'; i++) {
-    //     if (arg[i] < '0' || arg[i] > '9') return -1;
-    // }
-    // return (i == 1 && (arg[0] == '+' || arg[0] == '-')) ? -1 : 0;
+    if (arg[i] == '\0' || !arg[i]) return -1;
+    if (arg[i] == '+' || arg[i] == '-') i++;
+
+    for (; arg[i] != '\0'; i++) {
+        if (arg[i] < '0' || (int) arg[i] > '9') {
+            return -1;
+        }
+    }
+    return 0;
 }
 
 
@@ -143,6 +145,21 @@ void print_passing_arg(int *argc, char **argv) {
     }
 }
 
+
+
+
+
+
+
+// int isThisDigit(char *arg) {
+//     int i = 0;
+//     // if (!arg || !arg[0]) return -1;
+//     // if (arg[0] == '+' || arg[0] == '-') i++;
+//     // for (; arg[i] != '\0'; i++) {
+//     //     if (arg[i] < '0' || arg[i] > '9') return -1;
+//     // }
+//     // return (i == 1 && (arg[0] == '+' || arg[0] == '-')) ? -1 : 0;
+// }
 
 
 
