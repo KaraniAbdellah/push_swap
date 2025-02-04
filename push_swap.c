@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     }
 
     // sorting the stack a
-    sorting_algo(n, a, b);
+    // sorting_algo(n, a, b);
 
     return 0;
 }

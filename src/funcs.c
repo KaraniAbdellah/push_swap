@@ -89,55 +89,77 @@ void display_stack(Stack *head) {
 }
 
 
-void sa(Stack *a, Stack *b, int n) {
+void sa(Stack *a) {
+    int temp = a[0].data;
+    a[1].data = a[0].data;
+    a[0].data = temp;
+}
+
+void sb(Stack *b) {
+    int temp = b[0].data;
+    b[1].data = b[0].data;
+    b[0].data = temp;
+}
+
+void ss(Stack *a, Stack *b) {
+    sa(a);
+    sb(b);
+}
+
+void pa(Stack *a, Stack *b, int *n) {
+    a[0].data = b[0].data;
+    for (int i = 0; i < *n - 1; i++) {
+        b[i].data = b[i + 1].data;
+    }
+    *n -= 1;
+}
+
+void pb(Stack *a, Stack *b, int *n) {
     b[0].data = a[0].data;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < *n - 1; i++) {
+        a[i].data = a[i + 1].data;
+    }
+    *n -= 1;
+}
+
+void ra(Stack *a, int n) {
+    a[n - 1].data = a[0].data;
+    for (int i = 0; i < n - 1; i++) {
         a[i].data = a[i + 1].data;
     }
 }
 
-void sb(Stack *a, Stack *b, int n) {
-    a[0].data = b[0].data;
-    for (int i = 0; i < n; i++) {
+void rb(Stack *b, int n) {
+    b[n - 1].data = b[0].data;
+    for (int i = 0; i < n - 1; i++) {
         b[i].data = b[i + 1].data;
     }
 }
 
-void ss(Stack *a, Stack *b, int n) {
-    sa(a, b, n);
-    sb(a, b, n);
-}
-
-void pa(Stack *a, Stack *b, int n) {
-
-}
-
-void pb(Stack *a, Stack *b, int n) {
-
-}
-
-void ra(Stack *a, Stack *b, int n) {
-
-}
-
-void rb(Stack *a, Stack *b, int n) {
-
-}
-
 void rr(Stack *a, Stack *b, int n) {
-
+    ra(a, n);
+    rb(b, n);
 }
 
-void rra(Stack *a, Stack *b, int n) {
-
+void rra(Stack *a, int n) {
+    int temp1 = a[n - 1].data;
+    for (int i = n - 1; i > 0; i--) {
+        a[i].data = a[i- 1].data;
+    }
+    a[0].data = temp1;
 }
 
-void rrb(Stack *a, Stack *b, int n) {
-
+void rrb(Stack *b, int n) {
+    int temp1 = b[n - 1].data;
+    for (int i = n - 1; i > 0; i--) {
+        b[i].data = b[i- 1].data;
+    }
+    b[0].data = temp1;
 }
 
 void rrr(Stack *a, Stack *b, int n) {
-
+    rra(a, n);
+    rra(b, n);
 }
 
 
@@ -183,7 +205,7 @@ int isThisDigit(char *arg) {
 
     for (; arg[i] != '\0'; i++) {
         if (arg[i] < '0' || (int) arg[i] > '9') {
-            return -1;
+            if (arg[i] == ' ' || arg[i] == '+' || arg[i] == '-') continue;
         }
     }
     return 0;
@@ -192,7 +214,8 @@ int isThisDigit(char *arg) {
 
 void print_passing_arg(int *argc, char **argv) {
     for (int i = 0; i < *argc; i++) {
-        // printf("%d \n", isThisDigit(argv[i]));
+        printf("argv = %s\n", argv[i]);
+        printf("%d \n", isThisDigit(argv[i]));
     }
 }
 
