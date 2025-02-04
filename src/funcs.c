@@ -89,11 +89,61 @@ void display_stack(Stack *head) {
 }
 
 
-void sorting_algo(int n, Stack *a, Stack *b) {
-    // Display
+void sa(Stack *a, Stack *b, int n) {
+    b[0].data = a[0].data;
     for (int i = 0; i < n; i++) {
-        printf("%d\n", a[i].data);
+        a[i].data = a[i + 1].data;
     }
+}
+
+void sb(Stack *a, Stack *b, int n) {
+    a[0].data = b[0].data;
+    for (int i = 0; i < n; i++) {
+        b[i].data = b[i + 1].data;
+    }
+}
+
+void ss(Stack *a, Stack *b, int n) {
+    sa(a, b, n);
+    sb(a, b, n);
+}
+
+void pa(Stack *a, Stack *b, int n) {
+
+}
+
+void pb(Stack *a, Stack *b, int n) {
+
+}
+
+void ra(Stack *a, Stack *b, int n) {
+
+}
+
+void rb(Stack *a, Stack *b, int n) {
+
+}
+
+void rr(Stack *a, Stack *b, int n) {
+
+}
+
+void rra(Stack *a, Stack *b, int n) {
+
+}
+
+void rrb(Stack *a, Stack *b, int n) {
+
+}
+
+void rrr(Stack *a, Stack *b, int n) {
+
+}
+
+
+
+
+void sorting_algo(int n, Stack *a, Stack *b) {
 
     // PUSH Operattion
     b[0].data = a[0].data;
@@ -124,6 +174,7 @@ void sorting_algo(int n, Stack *a, Stack *b) {
     a[0].data = temp1;
 
 }
+
 
 int isThisDigit(char *arg) {
     int i = 0;
