@@ -9,23 +9,25 @@ int main(int argc, char *argv[]) {
     
     print_passing_arg(&argc, argv);
 
+    /// The Input Will Be From User [Stack a]
     int n = 6;
     int T[] = {5, 2, 3, 1, -5, 6};
     Stack *a = malloc(sizeof(Stack) * n);
     Stack *b = malloc(sizeof(Stack) * n);
 
-    // initialize the stack a
+    // Initialize The Stack a
     for (int i = 0; i < n; i++) {
         a[i].data = T[i];
     }
 
-    // sorting the stack a
-    // sorting_algo(n, a, b);
+    display_a_b(a, b, n);
+    sorting_algo(a, b, n);
+    display_a_b(a, b, n);
+
+
+
 
     return 0;
 }
-
-
-
 
 

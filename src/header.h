@@ -9,6 +9,8 @@ typedef struct Stack {
     struct Stack *prev;
 } Stack;
 
+// Start Define The Color
+
 
 
 // Start Defining The Functions Prototype
@@ -16,9 +18,10 @@ Stack *create_and_init_node(int data);
 void push_to_stack(Stack **head, Stack **sommet, int data);
 void display_stack(Stack *head);
 void pop_from_stack(Stack **head, Stack **sommet);
-void sorting_algo(int n, Stack *a, Stack *b);
+void sorting_algo(Stack *a, Stack *b, int n);
 void print_passing_arg(int *argc, char **argv);
 int isThisDigit(char *arg);
+void display_a_b(Stack *a, Stack *b, int n);
 
 
 #endif

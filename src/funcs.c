@@ -88,9 +88,13 @@ void display_stack(Stack *head) {
     }
 }
 
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 void sa(Stack *a) {
-    int temp = a[0].data;
+    int temp = a[1].data;
     a[1].data = a[0].data;
     a[0].data = temp;
 }
@@ -165,75 +169,41 @@ void rrr(Stack *a, Stack *b, int n) {
 
 
 
-void sorting_algo(int n, Stack *a, Stack *b) {
+void sorting_algo(Stack *a, Stack *b, int n) {
 
-    // PUSH Operattion
-    b[0].data = a[0].data;
-    for (int i = 0; i < n; i++) {
-        a[i].data = a[i + 1].data;
-    }
-    n--;
-
-
-    // SWAP Operation
-    int temp = a[0].data;
-    a[0].data = a[1].data;
-    a[1].data = temp;
-
-
-    // ROTATE Operation
-    a[n].data = a[0].data;
-    for (int i = 0; i < n; i++) {
-        a[i].data = a[i + 1].data;
-    }
-
-
-    // REVERSE Rotate
-    int temp1 = a[n].data;
-    for (int i = n - 1; i >= 0; i--) {
-        a[i].data = a[i- 1].data;
-    }
-    a[0].data = temp1;
+    sa(a);
 
 }
 
+
+void display_a_b(Stack *a, Stack *b, int n) {
+    printf("The Stack a and b:\n");
+    printf("a = [ "); for (int i = 0; i < n; i++) printf("%d ", a[i].data); printf("]\n");
+    printf("b = [ "); for (int i = 0; i < n; i++) printf("%d ", b[i].data); printf("]\n");
+}
 
 int isThisDigit(char *arg) {
     int i = 0;
-    if (arg[i] == '\0' || !arg[i]) return -1;
-    if (arg[i] == '+' || arg[i] == '-') i++;
-
     for (; arg[i] != '\0'; i++) {
         if (arg[i] < '0' || (int) arg[i] > '9') {
             if (arg[i] == ' ' || arg[i] == '+' || arg[i] == '-') continue;
+            else return -1;
         }
     }
-    return 0;
+    return 1;
 }
+
 
 
 void print_passing_arg(int *argc, char **argv) {
     for (int i = 0; i < *argc; i++) {
-        printf("argv = %s\n", argv[i]);
-        printf("%d \n", isThisDigit(argv[i]));
+        printf("%s --> %d\n", argv[i], isThisDigit(argv[i]));
     }
 }
 
 
 
 
-
-
-
-// int isThisDigit(char *arg) {
-//     int i = 0;
-//     // if (!arg || !arg[0]) return -1;
-//     // if (arg[0] == '+' || arg[0] == '-') i++;
-//     // for (; arg[i] != '\0'; i++) {
-//     //     if (arg[i] < '0' || arg[i] > '9') return -1;
-//     // }
-//     // return (i == 1 && (arg[0] == '+' || arg[0] == '-')) ? -1 : 0;
-// }
 
 
 
