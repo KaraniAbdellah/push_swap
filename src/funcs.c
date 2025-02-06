@@ -196,40 +196,9 @@ void rrr(Stack *a, Stack *b, int *size_a, int *size_b) {
 
 
 void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
-    // One Element
-    if (*size_a <= 1) return;
 
-    // Sort for 2 Elements
-    if (*size_a == 2) {
-        if (a[0].data > a[1].data) sa(a, size_a);
-        return;
-    }
+    // Start Sorting Here The ELemenets With Some Conditions
 
-    // Sort for 3 Elements
-    if (*size_a == 3) {
-        if (a[0].data > a[1].data && a[1].data > a[2].data) sa(a, size_a);
-        if (a[0].data > a[1].data) ra(a, size_a);
-        if (a[0].data > a[1].data) sa(a, size_a);
-        return;
-    }
-
-    // For more than 3 Elements
-    while (*size_a > 3) {
-        // You can modify this condition for better sorting logic
-        if (a[0].data > a[1].data) {
-            sa(a, size_a);
-        } else {
-            pb(a, b, size_a, size_b);
-        }
-    }
-
-    // Recursively sort the remaining elements
-    sorting_algo(a, b, size_a, size_b);
-
-    // Move all elements back from b to a in sorted order
-    while (*size_b > 0) {
-        pa(a, b, size_a, size_b);
-    }
 }
 
 
