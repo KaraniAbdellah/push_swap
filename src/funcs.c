@@ -197,10 +197,20 @@ void rrr(Stack *a, Stack *b, int *size_a, int *size_b) {
 // This Sorting will be Desc
 void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
 
-    if (size_a < 1) return;
-    else if (size_a == 2) {
+    if (*size_a < 1) return;
+    else if (*size_a == 2) {
         if (a[0].data > a[1].data) sa(a, size_a);
-    } else 
+    } else if (*size_a == 3) {
+        if (a[0].data > a[1].data) sa(a, size_a);
+        if (a[1].data > a[2].data) {
+            pb(a, b, size_a, size_b);
+            if (a[0].data > a[1].data) sa(a, size_a);
+            pa(a, b, size_a, size_b);
+            if (a[0].data > a[1].data) sa(a, size_a);
+        }
+    } else if (*size_a == 4) {
+        
+    }
 
 }
 
