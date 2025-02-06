@@ -25,9 +25,7 @@ int main(int argc, char *argv[]) {
     }
 
     display_a_b(a, b, size_a, size_b);
-    sorting_algo(a, b, size_a, size_b);
-    display_a_b(a, b, size_a, size_b);
-    sorting_algo(a, b, size_a, size_b);
+    sorting_algo(a, b, &size_a, &size_b);
     display_a_b(a, b, size_a, size_b);
 
 
