@@ -111,18 +111,36 @@ void ss(Stack *a, Stack *b) {
 }
 
 void pa(Stack *a, Stack *b, int *n) {
+    // Shift The Element of Stack b
+    for (int i = (*n - 1); i >= 0; i--) {
+        if (b[i].data != 0) {
+            a[i + 1].data = a[i].data; 
+        }
+    }
     a[0].data = b[0].data;
+
+    // Shift Element of Stack b
     for (int i = 0; i < *n - 1; i++) {
         b[i].data = b[i + 1].data;
     }
+    // Decrement the size of stacks
     *n -= 1;
 }
 
 void pb(Stack *a, Stack *b, int *n) {
+    // Shift The Element of Stack b
+    for (int i = (*n - 1); i >= 0; i--) {
+        if (b[i].data != 0) {
+            b[i + 1].data = b[i].data; 
+        }
+    }
     b[0].data = a[0].data;
+
+    // Shift Element of Stack a
     for (int i = 0; i < *n - 1; i++) {
         a[i].data = a[i + 1].data;
     }
+    // Decrement the size of stacks
     *n -= 1;
 }
 
@@ -171,7 +189,7 @@ void rrr(Stack *a, Stack *b, int n) {
 
 void sorting_algo(Stack *a, Stack *b, int n) {
 
-    sa(a);
+    pa(a, b, &n);
 
 }
 

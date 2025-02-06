@@ -19,7 +19,12 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < n; i++) {
         a[i].data = T[i];
     }
+    for (int i = 0; i < n; i++) {
+        b[i].data = 0;
+    }
 
+    display_a_b(a, b, n);
+    sorting_algo(a, b, n);
     display_a_b(a, b, n);
     sorting_algo(a, b, n);
     display_a_b(a, b, n);
