@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     
     print_passing_arg(&argc, argv);
 
-    /// The Input Will Be From User [Stack a]
+    // The Input Will Be From User [Stack a]
     int n = 6;
     int T[] = {5, 2, 3, 1, -5, 6};
     Stack *a = malloc(sizeof(Stack) * n);
