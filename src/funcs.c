@@ -93,111 +93,111 @@ void display_stack(Stack *head) {
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-void sa(Stack *a) {
-    int temp = a[1].data;
-    a[1].data = a[0].data;
+void sa(Stack *a, int size_a) {
+    if (size_a > 1) {
+        int temp = a[1].data;
+        a[1].data = a[0].data;
+        a[0].data = temp;
+    }
+}
+
+void sb(Stack *b, int size_b) {
+    if (size_b > 1) {
+        int temp = b[1].data;
+        b[1].data = b[0].data;
+        b[0].data = temp;
+    }
+}
+
+void ss(Stack *a, Stack *b, int size_a, int size_b) {
+    sa(a, size_a);
+    sb(b, size_b);
+}
+
+void pa(Stack *a, Stack *b, int *size_a, int *size_b) {
+    if (*size_b > 0) {
+        for (int i = *size_a; i > 0; i--) { 
+            a[i].data = a[i - 1].data;  
+        }
+        a[0].data = b[0].data;  
+        for (int i = 0; i < *size_b - 1; i++) {  
+            b[i].data = b[i + 1].data;  
+        }
+        (*size_a)++;  
+        (*size_b)--;  
+    }
+}
+
+void pb(Stack *a, Stack *b, int *size_a, int *size_b) {
+    if (*size_a > 0) { 
+        for (int i = *size_b; i > 0; i--) { 
+            b[i].data = b[i - 1].data;  
+        }
+        b[0].data = a[0].data;  
+        for (int i = 0; i < *size_a - 1; i++) {  
+            a[i].data = a[i + 1].data;  
+        }
+        (*size_b)++;  
+        (*size_a)--;  
+    }
+}
+
+void ra(Stack *a, int size_a) {
+    int temp = a[0].data;
+    for (int i = 0; i < size_a - 1; i++) {
+        a[i].data = a[i + 1].data;
+    }
+    a[size_a - 1].data = temp;
+}
+
+void rb(Stack *b, int size_b) {
+    int temp = b[0].data;
+    for (int i = 0; i < size_b - 1; i++) {
+        b[i].data = b[i + 1].data;
+    }
+    b[size_b - 1].data = temp;
+}
+
+void rr(Stack *a, Stack *b, int size_a, int size_b) {
+    ra(a, size_a);
+    rb(b, size_b);
+}
+
+void rra(Stack *a, int size_a) {
+    int temp = a[size_a - 1].data;
+    for (int i = size_a - 1; i > 0; i--) {
+        a[i].data = a[i- 1].data;
+    }
     a[0].data = temp;
 }
 
-void sb(Stack *b) {
-    int temp = b[0].data;
-    b[1].data = b[0].data;
+void rrb(Stack *b, int size_b) {
+    int temp = b[size_b - 1].data;
+    for (int i = size_b - 1; i > 0; i--) {
+        b[i].data = b[i- 1].data;
+    }
     b[0].data = temp;
 }
 
-void ss(Stack *a, Stack *b) {
-    sa(a);
-    sb(b);
-}
-
-void pa(Stack *a, Stack *b, int *n) {
-    // Shift The Element of Stack b
-    for (int i = (*n - 1); i >= 0; i--) {
-        if (b[i].data != 0) {
-            a[i + 1].data = a[i].data; 
-        }
-    }
-    a[0].data = b[0].data;
-
-    // Shift Element of Stack b
-    for (int i = 0; i < *n - 1; i++) {
-        b[i].data = b[i + 1].data;
-    }
-    // Decrement the size of stacks
-    *n -= 1;
-}
-
-void pb(Stack *a, Stack *b, int *n) {
-    // Shift The Element of Stack b
-    for (int i = (*n - 1); i >= 0; i--) {
-        if (b[i].data != 0) {
-            b[i + 1].data = b[i].data; 
-        }
-    }
-    b[0].data = a[0].data;
-
-    // Shift Element of Stack a
-    for (int i = 0; i < *n - 1; i++) {
-        a[i].data = a[i + 1].data;
-    }
-    // Decrement the size of stacks
-    *n -= 1;
-}
-
-void ra(Stack *a, int n) {
-    a[n - 1].data = a[0].data;
-    for (int i = 0; i < n - 1; i++) {
-        a[i].data = a[i + 1].data;
-    }
-}
-
-void rb(Stack *b, int n) {
-    b[n - 1].data = b[0].data;
-    for (int i = 0; i < n - 1; i++) {
-        b[i].data = b[i + 1].data;
-    }
-}
-
-void rr(Stack *a, Stack *b, int n) {
-    ra(a, n);
-    rb(b, n);
-}
-
-void rra(Stack *a, int n) {
-    int temp1 = a[n - 1].data;
-    for (int i = n - 1; i > 0; i--) {
-        a[i].data = a[i- 1].data;
-    }
-    a[0].data = temp1;
-}
-
-void rrb(Stack *b, int n) {
-    int temp1 = b[n - 1].data;
-    for (int i = n - 1; i > 0; i--) {
-        b[i].data = b[i- 1].data;
-    }
-    b[0].data = temp1;
-}
-
-void rrr(Stack *a, Stack *b, int n) {
-    rra(a, n);
-    rra(b, n);
+void rrr(Stack *a, Stack *b, int size_a, int size_b) {
+    rra(a, size_a);
+    rrb(b, size_b);
 }
 
 
 
 
-void sorting_algo(Stack *a, Stack *b, int n) {
+void sorting_algo(Stack *a, Stack *b, int size_a, int size_b) {
 
-    pa(a, b, &n);
+
 
 }
 
 
-void display_a_b(Stack *a, Stack *b, int n) {
+void display_a_b(Stack *a, Stack *b, int size_a, int size_b) {
     printf("The Stack a and b:\n");
-    printf("a = [ "); for (int i = 0; i < n; i++) printf("%d ", a[i].data); printf("]\n");
-    printf("b = [ "); for (int i = 0; i < n; i++) printf("%d ", b[i].data); printf("]\n");
+    printf("a = [ "); for (int i = 0; i < size_a; i++) printf("%d ", a[i].data); printf("]\n");
+    printf("b = [ "); for (int i = 0; i < size_b; i++) printf("%d ", b[i].data); printf("]\n");
 }
 
 int isThisDigit(char *arg) {

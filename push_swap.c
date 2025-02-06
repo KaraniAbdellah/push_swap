@@ -11,9 +11,10 @@ int main(int argc, char *argv[]) {
 
     // The Input Will Be From User [Stack a]
     int n = 6;
+    int size_a = n, size_b = 0;
     int T[] = {5, 2, 3, 1, -5, 6};
-    Stack *a = malloc(sizeof(Stack) * n);
-    Stack *b = malloc(sizeof(Stack) * n);
+    Stack *a = malloc(sizeof(Stack) * size_a);
+    Stack *b = malloc(sizeof(Stack) * size_a);
 
     // Initialize The Stack a
     for (int i = 0; i < n; i++) {
@@ -23,11 +24,11 @@ int main(int argc, char *argv[]) {
         b[i].data = 0;
     }
 
-    display_a_b(a, b, n);
-    sorting_algo(a, b, n);
-    display_a_b(a, b, n);
-    sorting_algo(a, b, n);
-    display_a_b(a, b, n);
+    display_a_b(a, b, size_a, size_b);
+    sorting_algo(a, b, size_a, size_b);
+    display_a_b(a, b, size_a, size_b);
+    sorting_algo(a, b, size_a, size_b);
+    display_a_b(a, b, size_a, size_b);
 
 
 
