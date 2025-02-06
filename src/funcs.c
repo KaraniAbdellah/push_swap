@@ -194,10 +194,13 @@ void rrr(Stack *a, Stack *b, int *size_a, int *size_b) {
 
 
 
-
+// This Sorting will be Desc
 void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
 
-    // Start Sorting Here The ELemenets With Some Conditions
+    if (size_a < 1) return;
+    else if (size_a == 2) {
+        if (a[0].data > a[1].data) sa(a, size_a);
+    } else 
 
 }
 
