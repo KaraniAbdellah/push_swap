@@ -208,6 +208,16 @@ void sort_three_number(Stack *a, Stack *b, int *size_a, int *size_b) {
     }
 }
 
+void sort_four_number(Stack *a, Stack *b, int *size_a, int *size_b) {
+    pb(a, b, size_a, size_b);
+    sort_three_number(a, b, size_a, size_b);
+    pa(a, b, size_a, size_b);
+    ra(a, size_a);
+    pb(a, b, size_a, size_b);
+    sort_three_number(a, b, size_a, size_b);
+    pa(a, b, size_a, size_b);
+}
+
 // This Sorting will be Desc
 void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
 
@@ -217,10 +227,16 @@ void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
     } else if (*size_a == 3) {
         sort_three_number(a, b, size_a, size_b);
     } else if (*size_a == 4) {
+        sort_four_number(a, b, size_a, size_b);
+    } else if (*size_a == 5) {
         pb(a, b, size_a, size_b);
-        sort_three_number(a, b, size_a, size_b);
+        sort_four_number(a, b, size_a, size_b);
+
         pa(a, b, size_a, size_b);
-        // you can make in 5 6 7 8 9 numbers
+        ra(a, size_a);
+        pb(a, b, size_a, size_b);
+        sort_four_number(a, b, size_a, size_b);
+        pa(a, b, size_a, size_b);
     }
 
 }

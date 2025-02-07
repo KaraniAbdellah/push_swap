@@ -10,9 +10,9 @@ int main(int argc, char *argv[]) {
     print_passing_arg(&argc, argv);
 
     // The Input Will Be From User [Stack a]
-    int n = 4;
+    int n = 5;
     int size_a = n, size_b = 0;
-    int T[] = {2, 1, -1, 3};
+    int T[] = {-1, -1, -1, -1, -3};
     Stack *a = malloc(sizeof(Stack) * size_a);
     Stack *b = malloc(sizeof(Stack) * size_a);
 
