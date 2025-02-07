@@ -272,7 +272,7 @@ int isThisDigit(char *arg) {
 
 
 
-void check_passing_args(int *argc, char **argv) {
+long int *check_passing_args(int *argc, char **argv) {
     if (*argc > 1) {
         for (int i = 0; i < *argc; i++) {
             if (isThisDigit(argv[i]) == -1 && i != 0) {
@@ -280,18 +280,31 @@ void check_passing_args(int *argc, char **argv) {
                 exit(1);
             }
         }
-        
+
         // Get The Integers
-        int *T = calloc(100, sizeof(int));
+        long int *T = calloc(100, sizeof(int));
         int count = 0;
         for (int i = 1; i < *argc; i++) {
-            T[count] = atoi(argv[i]);
-            count++;
+            char *s = malloc(sizeof(char) * 20);
+            int count2 = 0;
+            for (int j = 0; argv[i][j] != '\0'; j++) {
+                if (argv[i][j] != ' ') {
+                    s[count2] = argv[i][j];
+                    count2++;
+                }
+                if (argv[i][j] == ' ' || argv[i][j + 1] == '\0') {
+                    T[count] = atoi(s);
+                    count++;
+                    count2 = 0;
+                    s = malloc(sizeof(char) * 20);
+                }
+            }
         }
 
         for (int i = 0; i < count; i++) {
-            printf("T[%d] = %d\n", i, T[i]);
+            printf("T[%d] = %ld\n", i, T[i]);
         }
+        return T;
     }
 }
 
