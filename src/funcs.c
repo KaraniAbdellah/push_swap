@@ -255,7 +255,7 @@ void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
 
 void display_a_b(Stack *a, Stack *b, int size_a, int size_b) {
     printf("The Stack a and b:\n");
-    // printf("a = [ "); for (int i = 0; i < size_a; i++) printf("%ld ", a[i].data); printf("]\n");
+    printf("a = [ "); for (int i = 0; i < size_a; i++) printf("%ld ", a[i].data); printf("]\n");
     printf("b = [ "); for (int i = 0; i < size_b; i++) printf("%ld ", b[i].data); printf("]\n");
 }
 
@@ -273,28 +273,26 @@ int isThisDigit(char *arg) {
 
 
 void check_passing_args(int *argc, char **argv) {
-    for (int i = 0; i < *argc; i++) {
-        if (isThisDigit(argv[i]) == -1 && i != 0) {
-            printf("--> Error in Arguments");
-            exit(1);
+    if (*argc > 1) {
+        for (int i = 0; i < *argc; i++) {
+            if (isThisDigit(argv[i]) == -1 && i != 0) {
+                printf("--> Error in Arguments");
+                exit(1);
+            }
+        }
+        
+        // Get The Integers
+        int *T = calloc(100, sizeof(int));
+        int count = 0;
+        for (int i = 1; i < *argc; i++) {
+            T[count] = atoi(argv[i]);
+            count++;
+        }
+
+        for (int i = 0; i < count; i++) {
+            printf("T[%d] = %d\n", i, T[i]);
         }
     }
-    
-    // Get The Integers
-    int *T = calloc(100, sizeof(int));
-    int count = 0;
-    for (int i = 1; i < *argc; i++) {
-        T[count] = atoi(argv[i]);
-        for (int j = 0; j < argv[i][j] != '\0'; j++) {
-            
-        }
-        count++;
-    }
-
-    for (int i = 0; i < count; i++) {
-        printf("T[%d] = %d\n", i, T[i]);
-    }
-
 }
 
 
