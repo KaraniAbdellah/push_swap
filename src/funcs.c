@@ -194,22 +194,33 @@ void rrr(Stack *a, Stack *b, int *size_a, int *size_b) {
 
 
 
+void sort_two_number(Stack *a, int *size_a) {
+    if (a[0].data > a[1].data) sa(a, size_a);
+}
+
+void sort_three_number(Stack *a, Stack *b, int *size_a, int *size_b) {
+    sort_two_number(a, size_a);
+    if (a[1].data >= a[2].data) {
+        pb(a, b, size_a, size_b);
+        sort_two_number(a, size_a);
+        pa(a, b, size_a, size_b);
+        sort_two_number(a, size_a);
+    }
+}
+
 // This Sorting will be Desc
 void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
 
     if (*size_a < 1) return;
     else if (*size_a == 2) {
-        if (a[0].data > a[1].data) sa(a, size_a);
+        sort_two_number(a, size_a);
     } else if (*size_a == 3) {
-        if (a[0].data > a[1].data) sa(a, size_a);
-        if (a[1].data > a[2].data) {
-            pb(a, b, size_a, size_b);
-            if (a[0].data > a[1].data) sa(a, size_a);
-            pa(a, b, size_a, size_b);
-            if (a[0].data > a[1].data) sa(a, size_a);
-        }
+        sort_three_number(a, b, size_a, size_b);
     } else if (*size_a == 4) {
-        
+        pb(a, b, size_a, size_b);
+        sort_three_number(a, b, size_a, size_b);
+        pa(a, b, size_a, size_b);
+        // you can make in 5 6 7 8 9 numbers
     }
 
 }
