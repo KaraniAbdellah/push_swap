@@ -83,16 +83,13 @@ void display_stack(Stack *head) {
     printf("Stack X:\n");
     Stack *temp = head;
     while (temp != NULL) {
-        printf("%d\n", temp->data);
+        printf("%ld\n", temp->data);
         temp = temp->next;
     }
 }
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
 void sa(Stack *a, int *size_a) {
     if (*size_a > 1) {
         int temp = a[0].data;
@@ -191,9 +188,11 @@ void rrr(Stack *a, Stack *b, int *size_a, int *size_b) {
     rra(a, size_a);
     rrb(b, size_b);
 }
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-
+// Start Sorting Algorithm
 void sort_two_number(Stack *a, int *size_a) {
     if (a[0].data > a[1].data) sa(a, size_a);
 }
@@ -218,7 +217,16 @@ void sort_four_number(Stack *a, Stack *b, int *size_a, int *size_b) {
     pa(a, b, size_a, size_b);
 }
 
-// This Sorting will be Desc
+void bubble_sort(Stack *a, int *size_a) {
+    for (int i = 0; i < *size_a - 1; i++) {
+        for (int j = 0; j < *size_a - i - 1; j++) {
+            if (a[j].data > a[j + 1].data) {
+                sa(a + j, size_a); 
+            }
+        }
+    }
+}
+
 void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
 
     if (*size_a < 1) return;
@@ -237,6 +245,9 @@ void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
         pb(a, b, size_a, size_b);
         sort_four_number(a, b, size_a, size_b);
         pa(a, b, size_a, size_b);
+    } else {
+        // I Am Try To Implement Bubble Sort --> YOu Can try Any Algorithm
+        bubble_sort(a, size_a);
     }
 
 }
@@ -244,8 +255,8 @@ void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
 
 void display_a_b(Stack *a, Stack *b, int size_a, int size_b) {
     printf("The Stack a and b:\n");
-    printf("a = [ "); for (int i = 0; i < size_a; i++) printf("%d ", a[i].data); printf("]\n");
-    printf("b = [ "); for (int i = 0; i < size_b; i++) printf("%d ", b[i].data); printf("]\n");
+    // printf("a = [ "); for (int i = 0; i < size_a; i++) printf("%ld ", a[i].data); printf("]\n");
+    printf("b = [ "); for (int i = 0; i < size_b; i++) printf("%ld ", b[i].data); printf("]\n");
 }
 
 int isThisDigit(char *arg) {
@@ -261,10 +272,29 @@ int isThisDigit(char *arg) {
 
 
 
-void print_passing_arg(int *argc, char **argv) {
+void check_passing_args(int *argc, char **argv) {
     for (int i = 0; i < *argc; i++) {
-        printf("%s --> %d\n", argv[i], isThisDigit(argv[i]));
+        if (isThisDigit(argv[i]) == -1 && i != 0) {
+            printf("--> Error in Arguments");
+            exit(1);
+        }
     }
+    
+    // Get The Integers
+    int *T = calloc(100, sizeof(int));
+    int count = 0;
+    for (int i = 1; i < *argc; i++) {
+        T[count] = atoi(argv[i]);
+        for (int j = 0; j < argv[i][j] != '\0'; j++) {
+            
+        }
+        count++;
+    }
+
+    for (int i = 0; i < count; i++) {
+        printf("T[%d] = %d\n", i, T[i]);
+    }
+
 }
 
 
