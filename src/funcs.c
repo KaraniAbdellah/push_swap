@@ -43,6 +43,8 @@
 #include "header.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 
 Stack *create_and_init_node(int data) {
@@ -281,31 +283,18 @@ long int *check_passing_args(int *argc, char **argv) {
             }
         }
 
-        // Get The Integers
-        long int *T = calloc(100, sizeof(int));
+        long int *T = calloc((*argc - 1), sizeof(long int));
         int count = 0;
         for (int i = 1; i < *argc; i++) {
-            char *s = malloc(sizeof(char) * 20);
-            int count2 = 0;
-            for (int j = 0; argv[i][j] != '\0'; j++) {
-                if (argv[i][j] != ' ') {
-                    s[count2] = argv[i][j];
-                    count2++;
-                }
-                if (argv[i][j] == ' ' || argv[i][j + 1] == '\0') {
-                    T[count] = atoi(s);
-                    count++;
-                    count2 = 0;
-                    s = malloc(sizeof(char) * 20);
-                }
+            char *token = strtok(argv[i], " ");
+            while (token) {
+                T[count++] = atol(token);
+                token = strtok(NULL, " ");
             }
-        }
-
-        for (int i = 0; i < count; i++) {
-            printf("T[%d] = %ld\n", i, T[i]);
         }
         return T;
     }
+    return NULL;
 }
 
 
