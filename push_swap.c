@@ -6,7 +6,10 @@
 
 int main(int argc, char *argv[]) {
     printf("Welcome To Push Swap Project: \n");
-
+    if (argc <= 1) {
+        printf("You Need Some Number Arguments!\n");
+        exit(1);
+    }
     // The Input Will Be From User To Stack a
     int length = getNumberOfSpace(argv[1]);
     long int *T = check_passing_args(&argc, argv);
