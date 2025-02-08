@@ -4,16 +4,16 @@ Push Swap is an algorithmic challenge focused on sorting integers using a limite
 
 ## Operation
 ## push
-<img src="img/push.png">
+<img src="imgs/push.png">
 
 ## swape
-<img src="img/swape.png">
+<img src="imgs/swape.png">
 
 ## rotate
-<img src="img/rotate.png">
+<img src="imgs/rotate.png">
 
 ## rotate reverse
-<img src="img/rotate_reverse.png">
+<img src="imgs/rotate_reverse.png">
 
 
 
