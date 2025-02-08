@@ -6,8 +6,8 @@ Push Swap is an algorithmic challenge focused on sorting integers using a limite
 ## push
 <img src="imgs/push.png">
 
-## swape
-<img src="imgs/swape.png">
+## swap
+<img src="imgs/swap.png">
 
 ## rotate
 <img src="imgs/rotate.png">
