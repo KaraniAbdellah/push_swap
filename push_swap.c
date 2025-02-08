@@ -19,15 +19,17 @@ int main(int argc, char *argv[]) {
     Stack *a = malloc(sizeof(Stack) * size_a);
     Stack *b = malloc(sizeof(Stack) * size_a);
 
+    // Initialize The Stack a
+    for (int i = 0; i < n; i++) {
+        a[i].data = T[i]; b[i].data = 0;
+    }
+
+    // Check If The Stack Already Sorted
     if (isThisStackSorted(a, size_a) == 1) {
         printf("OK, It is Already Sorted\n");
         exit(0);
     }
 
-    // Initialize The Stack a
-    for (int i = 0; i < n; i++) {
-        a[i].data = T[i]; b[i].data = 0;
-    }
 
     display_a_b(a, b, size_a, size_b);
     sorting_algo(a, b, &size_a, &size_b);

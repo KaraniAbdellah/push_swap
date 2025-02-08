@@ -295,7 +295,7 @@ long int *check_passing_args(int *argc, char *argv[]) {
     if (*argc > 1) {
         for (int i = 0; i < *argc; i++) {
             if (isThisDigit(argv[i]) == -1 && i != 0) {
-                printf("--> Error in Arguments");
+                printf("--> Error in Arguments\n");
                 exit(1);
             }
         }

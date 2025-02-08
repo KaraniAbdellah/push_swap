@@ -1,6 +1,13 @@
 
 Push Swap is an algorithmic challenge focused on sorting integers using a limited set of operations. I successfully implemented the Turk algorithm to minimize the number of moves required. 🧩 🔥 
 
+## images
+<img src="imgs/img1.png">
+<img src="imgs/img2.png">
+<img src="imgs/img3.png">
+
+
+
 
 ## Operation
 ## push
