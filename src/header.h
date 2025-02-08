@@ -22,6 +22,8 @@ void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b);
 long int *check_passing_args(int *argc, char **argv);
 int isThisDigit(char *arg);
 void display_a_b(Stack *a, Stack *b, int size_a, int size_b);
+int getNumberOfSpace(char *s);
+int isThisStackSorted(Stack *a, int size_a);
 
 
 

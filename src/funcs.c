@@ -212,18 +212,22 @@ void sort_three_number(Stack *a, Stack *b, int *size_a, int *size_b) {
 void sort_four_number(Stack *a, Stack *b, int *size_a, int *size_b) {
     pb(a, b, size_a, size_b);
     sort_three_number(a, b, size_a, size_b);
-    pa(a, b, size_a, size_b);
-    ra(a, size_a);
-    pb(a, b, size_a, size_b);
-    sort_three_number(a, b, size_a, size_b);
-    pa(a, b, size_a, size_b);
+    if (b[1].data >= a[0].data) {
+        pa(a, b, size_a, size_b);
+        ra(a, size_a);
+        pb(a, b, size_a, size_b);
+        sort_three_number(a, b, size_a, size_b);
+        pa(a, b, size_a, size_b);
+    } else {
+        pa(a, b, size_a, size_b);
+    }
 }
 
 void bubble_sort(Stack *a, int *size_a) {
     for (int i = 0; i < *size_a - 1; i++) {
         for (int j = 0; j < *size_a - i - 1; j++) {
             if (a[j].data > a[j + 1].data) {
-                sa(a + j, size_a); 
+                sa(a + j, size_a);
             }
         }
     }
@@ -241,12 +245,15 @@ void sorting_algo(Stack *a, Stack *b, int *size_a, int *size_b) {
     } else if (*size_a == 5) {
         pb(a, b, size_a, size_b);
         sort_four_number(a, b, size_a, size_b);
-
-        pa(a, b, size_a, size_b);
-        ra(a, size_a);
-        pb(a, b, size_a, size_b);
-        sort_four_number(a, b, size_a, size_b);
-        pa(a, b, size_a, size_b);
+        if (b[1].data >= a[0].data) {
+            pa(a, b, size_a, size_b);
+            ra(a, size_a);
+            pb(a, b, size_a, size_b);
+            sort_four_number(a, b, size_a, size_b);
+            pa(a, b, size_a, size_b);
+        } else {
+            pa(a, b, size_a, size_b);
+        }
     } else {
         // I Am Try To Implement Bubble Sort --> YOu Can try Any Algorithm
         bubble_sort(a, size_a);
@@ -273,8 +280,18 @@ int isThisDigit(char *arg) {
 }
 
 
+int getNumberOfSpace(char *s) {
+    int count = 0;
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (s[i] == ' ') count++;
+    }
+    return count + 5;
+}
 
-long int *check_passing_args(int *argc, char **argv) {
+
+
+
+long int *check_passing_args(int *argc, char *argv[]) {
     if (*argc > 1) {
         for (int i = 0; i < *argc; i++) {
             if (isThisDigit(argv[i]) == -1 && i != 0) {
@@ -282,13 +299,14 @@ long int *check_passing_args(int *argc, char **argv) {
                 exit(1);
             }
         }
+        int lenght = getNumberOfSpace(argv[1]);
 
-        long int *T = calloc((*argc - 1), sizeof(long int));
+        long int *T = calloc(lenght, sizeof(long int));
         int count = 0;
         for (int i = 1; i < *argc; i++) {
             char *token = strtok(argv[i], " ");
             while (token) {
-                T[count++] = atol(token);
+                T[count] = atol(token); count++;
                 token = strtok(NULL, " ");
             }
         }
@@ -298,6 +316,14 @@ long int *check_passing_args(int *argc, char **argv) {
 }
 
 
+int isThisStackSorted(Stack *a, int size_a) {
+    for (int i = 0; i < size_a - 1; i++) {
+        if (a[i].data > a[i + 1].data) {
+            return -1;
+        }
+    }
+    return 1;
+}
 
 
 
