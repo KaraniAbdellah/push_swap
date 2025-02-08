@@ -13,7 +13,7 @@ Push Swap is an algorithmic challenge focused on sorting integers using a limite
 <img src="imgs/rotate.png">
 
 ## rotate reverse
-<img src="imgs/rotate_reverse.png">
+<img src="imgs/rotate_reverse.avif">
 
 
 
